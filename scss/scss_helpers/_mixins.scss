@@ -1,0 +1,76 @@
+@use "./variables" as *;
+
+// Very Small Devices
+@mixin vsm{
+  @media (max-width: #{$screen-sm-min}){
+    .container{
+      width: 750px;
+    }
+    @content;
+  }
+}
+
+// Small Devices
+@mixin sm{
+  @media  (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min - 1}){
+    .container{
+      width: 750px;
+    }
+    @content;
+  }
+}
+
+// Medium Devices
+@mixin md{
+  @media (min-width: #{$screen-md-min}) and (max-width: #{$screen-lg-min - 1}){
+    .container{
+      width: 970px;
+    }
+    @content;
+  }
+}
+
+// Large Devices
+@mixin lg{
+  @media (min-width: #{$screen-lg-min}) and ((max-width: #{$screen-xl-min - 1})){
+    .container{
+      width: 1170px;
+    }
+    @content;
+  }
+}
+
+// Extra Large Devices
+@mixin xl{
+  @media (max-width: #{$screen-xl-min}){
+    @content;
+  }
+}
+
+// Grid
+@mixin grid($columns, $gap){
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Grid-2
+@mixin grid-2($colums-w, $gap-2){
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($colums-w, 1fr));
+  gap: $gap-2;
+}
+
+// Transitions
+@mixin transition{
+  transition: 0.3s all linear;
+}
+
+// Transform
+@mixin transform{
+  @include transition;
+
+  &:hover{
+    transform: translateY(-5px);
+  }
+}
